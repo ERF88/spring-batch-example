@@ -1,15 +1,11 @@
-package com.github.erf88.config;
+package com.github.erf88.step;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
-import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
@@ -18,39 +14,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableBatchProcessing
-public class DivisiblebyTwoConfig {
-	
-
-	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+public class DivisiblebyTwoStepConfig {
 
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
 	
 	@Bean
-	public Job divisiblebyTwoJob() {
-
-		return jobBuilderFactory
-				.get("divisiblebyTwoJob")
-				.start(divisiblebyTwoStep())
-				.incrementer(new RunIdIncrementer())
-				.build();
-
-	}
-
-	private Step divisiblebyTwoStep() {
+	public Step divisiblebyTwoStep() {
 
 		return stepBuilderFactory
 				.get("divisiblebyTwoStep")
-				.<Integer, String>chunk(1)
+				.<Integer, String>chunk(10)
 				.reader(countUntilTen())
 				.processor(divisiblebyTwoProcessor())
 				.writer(printWriter())
 				.build();
 		
 	}
-
+	
 	public IteratorItemReader<Integer> countUntilTen() {	
 		List<Integer> numbers = IntStream.range(1, 11).boxed().collect(Collectors.toList());
 		return new IteratorItemReader<Integer>(numbers.iterator());
@@ -64,4 +45,5 @@ public class DivisiblebyTwoConfig {
 	public ItemWriter<String> printWriter() {		
 		return items -> items.forEach(System.out::println);
 	}
+	
 }
