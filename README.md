@@ -1,10 +1,10 @@
 # spring-batch-example
 
-# Run Jobs
-- Program arguments:
+## Jobs
 
-* helloWorldJob
+* HelloWorldJob
 
-* divisiblebyTwoJob
+* DivisiblebyTwoJob
 
-* FixedWidthFileJob -> fileName=file:files/fixedLength.txt
+* FixedWidthFileJob
+Program arguments: fileName=file:files/fixedLength.txt
