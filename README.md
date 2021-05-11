@@ -2,9 +2,9 @@
 
 ## Jobs
 
-* HelloWorldJob
+### HelloWorldJob
 
-* DivisiblebyTwoJob
+### DivisiblebyTwoJob
 
-* FixedWidthFileJob
-- Program arguments: fileName=file:files/fixedLength.txt
+### FixedWidthFileJob
+* Program arguments: fileName=file:files/fixedLength.txt
