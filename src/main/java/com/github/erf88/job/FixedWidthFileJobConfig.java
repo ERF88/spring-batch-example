@@ -8,21 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-public class HelloWorldJobConfig {
+@Configuration
+public class FixedWidthFileJobConfig {
 
 	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
-
+	public JobBuilderFactory jobBuilderFactory;
+	
 	@Bean
-	public Job helloWorldJob(Step helloWorldStep) {
-
+	public Job fixedWidthFileJob(Step fixedWidthFileStep) {
 		return jobBuilderFactory
-				.get("helloWorldJob")
-				.start(helloWorldStep)
+				.get("fixedWidthFileJob")
+				.start(fixedWidthFileStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
-
 	}
-
 }

@@ -1,4 +1,10 @@
 # spring-batch-example
 
-- Primeiro projeto Spring Batch
-- Trabalhando com Jobs e Steps
+# Run Jobs
+- Program arguments:
+
+* helloWorldJob
+
+* divisiblebyTwoJob
+
+* FixedWidthFileJob -> fileName=file:files/fixedLength.txt
