@@ -7,4 +7,4 @@
 * DivisiblebyTwoJob
 
 * FixedWidthFileJob
-Program arguments: fileName=file:files/fixedLength.txt
+- Program arguments: fileName=file:files/fixedLength.txt
