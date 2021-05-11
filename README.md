@@ -1,3 +1,4 @@
 # spring-batch-example
 
-- primeiro projeto Spring Batch
+- Primeiro projeto Spring Batch
+- Trabalhando com Jobs e Steps
