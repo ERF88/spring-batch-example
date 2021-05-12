@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import com.github.erf88.model.Customer;
 
 @Configuration
-public class FixedWidthFileWriterConfig {
-
+public class DelimitedFileWriterConfig {
+	
 	@Bean
-	public ItemWriter<Customer> fixedWidthFileWriter() {
+	public ItemWriter<Customer> delimitedFileWriter() {
 		return items -> items.forEach(System.out::println);
 	}
-	
+
 }

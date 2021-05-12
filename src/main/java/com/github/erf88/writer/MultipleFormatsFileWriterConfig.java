@@ -4,14 +4,13 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.erf88.model.Customer;
-
 @Configuration
-public class FixedWidthFileWriterConfig {
-
+public class MultipleFormatsFileWriterConfig {
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
-	public ItemWriter<Customer> fixedWidthFileWriter() {
+	public ItemWriter multipleFormatsFileWriter() {
 		return items -> items.forEach(System.out::println);
 	}
-	
+
 }

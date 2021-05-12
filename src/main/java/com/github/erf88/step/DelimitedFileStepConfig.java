@@ -11,21 +11,21 @@ import org.springframework.context.annotation.Configuration;
 import com.github.erf88.model.Customer;
 
 @Configuration
-public class FixedWidthFileStepConfig {
+public class DelimitedFileStepConfig {
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
 	@Bean
-	public Step fixedWidthFileStep(
-			ItemReader<Customer> fixedWidthFileReader,
-			ItemWriter<Customer> fixedWidthFileWriter) {
+	public Step delimitedFileStep(
+			ItemReader<Customer> delimitedFileReader,
+			ItemWriter<Customer> delimitedFileWriter) {
 		
 		return stepBuilderFactory
-				.get("fixedWidthFileStep")
+				.get("delimitedFileStep")
 				.<Customer, Customer>chunk(1)
-				.reader(fixedWidthFileReader)
-				.writer(fixedWidthFileWriter)
+				.reader(delimitedFileReader)
+				.writer(delimitedFileWriter)
 				.build();
 	}
 	

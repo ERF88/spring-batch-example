@@ -2,30 +2,28 @@ package com.github.erf88.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.erf88.model.Customer;
-
 @Configuration
-public class FixedWidthFileStepConfig {
+public class MultipleFormatsFileStepConfig {
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Bean
-	public Step fixedWidthFileStep(
-			ItemReader<Customer> fixedWidthFileReader,
-			ItemWriter<Customer> fixedWidthFileWriter) {
-		
+	public Step multipleFormatsFileStep(
+			FlatFileItemReader multipleFormatsFileReader,
+			ItemWriter multipleFormatsFileWriter) {
 		return stepBuilderFactory
-				.get("fixedWidthFileStep")
-				.<Customer, Customer>chunk(1)
-				.reader(fixedWidthFileReader)
-				.writer(fixedWidthFileWriter)
+				.get("multipleFormatsFileStep")
+				.chunk(1)
+				.reader(multipleFormatsFileReader)
+				.writer(multipleFormatsFileWriter)
 				.build();
 	}
 	

@@ -8,21 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-public class DivisiblebyTwoJobConfig {
-	
+@Configuration
+public class MultipleFormatsFileJobConfig {
+
 	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+	public JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job divisiblebyTwoJob(Step divisiblebyTwoStep) {
-
+	public Job multipleFormatsFileJob(Step multipleFormatsFileStep) {
 		return jobBuilderFactory
-				.get("divisiblebyTwoJob")
-				.start(divisiblebyTwoStep)
+				.get("multipleFormatsFileJob")
+				.start(multipleFormatsFileStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
-
 	}
-	
 }

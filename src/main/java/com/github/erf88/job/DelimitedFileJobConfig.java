@@ -9,20 +9,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 //@Configuration
-public class DivisiblebyTwoJobConfig {
-	
+public class DelimitedFileJobConfig {
+
 	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+	public JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job divisiblebyTwoJob(Step divisiblebyTwoStep) {
-
+	public Job delimitedFileJob(Step delimitedFileStep) {
 		return jobBuilderFactory
-				.get("divisiblebyTwoJob")
-				.start(divisiblebyTwoStep)
+				.get("delimitedFileJob")
+				.start(delimitedFileStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
-
 	}
 	
 }

@@ -4,13 +4,11 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.erf88.model.Customer;
-
 @Configuration
-public class FixedWidthFileWriterConfig {
+public class DivisiblebyTwoWriterConfig {
 
 	@Bean
-	public ItemWriter<Customer> fixedWidthFileWriter() {
+	public ItemWriter<String> divisiblebyTwoWriter() {		
 		return items -> items.forEach(System.out::println);
 	}
 	
