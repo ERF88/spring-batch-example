@@ -2,16 +2,16 @@
 
 ## Jobs
 
-* HelloWorldJob
+# HelloWorldJob
 
-* DivisiblebyTwoJob
+# DivisiblebyTwoJob
 
-* FixedWidthFileJob
+# FixedWidthFileJob
 - Program arguments: fixedLength=file:files/fixedLength.txt
 
-* DelimitedFileJob
+# DelimitedFileJob
 - Program arguments: delimited=file:files/delimited.txt
 
-* MultipleFormatsFileJob
+# MultipleFormatsFileJob
 - Program arguments: multipleFormats=file:files/multipleFormats.txt
 
